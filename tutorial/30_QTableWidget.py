@@ -75,9 +75,14 @@ class MainWindow(QMainWindow):
 
         delete_action = QAction(QIcon('./assets/remove.png'), '&Delete', self)
         delete_action.triggered.connect(self.delete)
+        print_list = QAction(QIcon('./assets/print.png'), '&Print', self)
+        print_list.triggered.connect(self.print_qtable)
         toolbar.addAction(delete_action)
+        toolbar.addAction(print_list)
         dock.setWidget(form)
 
+    def print_qtable(self):
+        print(self.table.items())
 
     def delete(self):
         current_row = self.table.currentRow()
